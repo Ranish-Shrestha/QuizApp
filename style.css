@@ -1,0 +1,169 @@
+/*
+    Ranish Shrestha C0916260
+	November 22, 2023 
+*/
+
+/* importing font 'Poppins' */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    background: -moz-linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+ 	background: -o-linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+.quiz-container {
+    position: relative;
+    width: 780px;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 2rem;
+    border : #fff solid 4px;
+    border-radius : 1rem;
+    background : #EDF1F4;
+    box-shadow : 15px 15px 20px rgb(0, 0, 0, 0.3);
+    transition : all 0.5s ease-in-out;
+}
+/* class for animation fade in */
+.quiz-container .fade-in-quiz-section {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+}
+/* key frame for fade in */
+@keyframes fadeIn {
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 1; 
+    }
+}
+/* shadow for appear only on hover */
+.quiz-container:hover {
+    box-shadow: 15px 15px 20px rgba(255, 255, 255, .6);
+}
+.quiz-container form {
+    position: relative;
+    width: 100%;
+}
+.quiz-container form h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    line-height: 0.9em;
+}
+.quiz-container form h2 span {
+    font-weight: 300;
+    font-size: 0.65em;
+}
+.quiz-container form .inputBox {
+    position: relative;
+    display: flex;
+}
+.quiz-container form .inputBox input {
+    border: none;
+    outline: none;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 1em;
+}
+.quiz-container form .inputBox i {
+    position: absolute;
+    left: 20px;
+    top: 25%;
+}
+.quiz-container form p {
+    display: flex;
+    align-items: center;
+}
+.quiz-container form input[type="radio"],
+.quiz-container form input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+.quiz-container form .radio-group {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+.quiz-container form .radio-label {
+    flex: 1;
+}
+.quiz-container form button {
+    margin-top: 5%;
+    left: 2rem;
+    bottom: 2rem;
+    width: 10rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    color:#fff;
+    cursor: pointer;
+    transition: all.8s ease-in-out;
+}
+.quiz-container form button.check-answer {
+    background:#000;
+}
+.quiz-container form button.continue-quiz {
+    display: none;
+    background: #2A2aaa;
+}
+.quiz-container form .submit-quiz {
+    display: none;
+    background: rgb(3, 193, 3);
+}
+
+/* media query for tablets */
+@media only screen and (max-width: 768px) {
+    .quiz-container {
+        max-width: 580px;
+    }
+    
+    .quiz-container form {
+        flex-direction: column;
+    }
+
+    /* options in one column */
+    .quiz-container form .radio-label {
+        flex: 0;
+    }
+
+    .quiz-container form .radio-group {
+        flex-direction: column;
+    }
+}
+
+/* media query for mobile view */
+@media only screen and (max-width: 480px) {
+    .quiz-container {
+        max-width: 300px;
+    }
+    
+    .quiz-container form {
+        flex-direction: column;
+    }
+
+    /* options in one column */
+    .quiz-container form .radio-label {
+        flex: 0;
+    }
+
+    .quiz-container form .radio-group {
+        flex-direction: column;
+    }
+}

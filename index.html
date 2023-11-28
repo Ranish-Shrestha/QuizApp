@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- This website template was created by: 
+	Ranish Shrestha C0916260
+	November 22, 2023  
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Style sheet for the Quiz -->
+	<link rel="stylesheet" href="style.css">
+	
+    <title>Advanced Quiz App</title>
+</head>
+<body>
+    <!-- Container for the Quiz -->
+	<div class="quiz-container">
+        <form>
+            <!-- Welcome message -->
+            <h2>Hello! <br> <span>Welcome to Advanced Quiz App</span></h2>
+            <div class="fade-in-quiz-section" id="quiz-section">
+                <!-- Quiz Question -->
+                <p class="quiz-question"></p>
+
+                <!-- Quiz options -->
+                <div class="radio-group">
+                    <div class="radio-label">
+                        <input type="radio" name="selection" id="r_1">
+                        <label for="r_1" class="a_text"></label>
+                    </div>
+                    <div class="radio-label">
+                        <input type="radio" name="selection" id="r_2">
+                        <label for="r_2" class="b_text"></label>
+                    </div>
+                    <div class="radio-label">
+                        <input type="radio" name="selection" id="r_3">
+                        <label for="r_3" class="c_text"></label>
+                    </div>
+                    <div class="radio-label">
+                        <input type="radio" name="selection" id="r_4">
+                        <label for="r_4" class="d_text"></label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Button for Checking Answer-->
+            <button type="button" class="check-answer" onclick="checkAnswer();">Check Answer</button>
+
+            <!-- Button for Continuing Quiz-->
+            <button type="button" class="continue-quiz" onclick="continueQuiz();">Continue</button>
+            
+            <!-- Button for Submiting Quiz-->
+            <button type="submit" class="submit-quiz">Submit</button>
+        </form>
+    </div>
+	
+    <script>
+        const quizQuestion = document.querySelector('.quiz-question');
+
+        const option_a = document.querySelector('.a_text');
+        const option_b = document.querySelector('.b_text');
+        const option_c = document.querySelector('.c_text');
+        const option_d = document.querySelector('.d_text');
+
+        const fadeInSection = document.querySelector('.fade-in-quiz-section');
+        const fadeInId = document.getElementById('quiz-section');
+
+        const checkButton = document.querySelector('.check-answer');
+        const continueButton = document.querySelector('.continue-quiz');
+        const submitButton = document.querySelector('.submit-quiz');
+
+        quizQuestion.innerHTML = "What is the name of capital city of Nepal?";
+        option_a.innerHTML = "A. Kathmandu";
+        option_b.innerHTML = "B. New Delhi";
+        option_c.innerHTML = "C. Tokyo";
+        option_d.innerHTML = "D. Seoul";
+
+        function checkAnswer() {
+            fadeInId.classList.remove('fade-in-quiz-section');
+
+            if(quizQuestion.innerHTML == "What is the name of capital city of Nepal?"){
+                option_a.style.color = "rgb(6, 255, 6)";
+                option_b.style.color = "rgb(255, 0, 0)";
+                option_c.style.color = "rgb(255, 0, 0)";
+                option_d.style.color = "rgb(255, 0, 0)";
+
+                checkButton.style.display = "none";
+                continueButton.style.display = "block";
+            }
+            else{
+                option_a.style.color = "rgb(255, 0, 0)";
+                option_b.style.color = "rgb(255, 0, 0)";
+                option_c.style.color = "rgb(255, 0, 0)";
+                option_d.style.color = "rgb(6, 255, 6)";
+
+                checkButton.style.display = "none";
+                submitButton.style.display = "block";
+            }
+        }
+
+        function continueQuiz() {
+            fadeInId.classList.add('fade-in-quiz-section');
+
+            quizQuestion.innerHTML = "What language defines the behavior of a web page?";
+            option_a.innerHTML = "A. HTML";
+            option_b.innerHTML = "B. CSS";
+            option_c.innerHTML = "C. XML";
+            option_d.innerHTML = "D. Java Script";
+
+            option_a.style.color = "rgb(0, 0, 0)";
+            option_b.style.color = "rgb(0, 0, 0)";
+            option_c.style.color = "rgb(0, 0, 0)";
+            option_d.style.color = "rgb(0, 0, 0)";
+
+            var elements = document.getElementsByTagName("input");
+
+            for(var i = 0; i < elements.length; i++) {
+                if (elements[i].type == "radio") {
+                    elements[i].checked = false;
+                }
+            }
+
+            checkButton.style.display = "block";
+            continueButton.style.display = "none";
+
+        }
+    </script>
+</body>
+</html>
